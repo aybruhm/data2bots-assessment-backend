@@ -92,6 +92,7 @@ class UpdateUserInformationAPIView(views.APIView):
         )
         return Response(data=payload, status=status.HTTP_200_OK)
     
+    @swagger_auto_schema(request_body=serializer_class)
     def put(self, request:Request) -> Response:
         """
         It updates the user's information.
