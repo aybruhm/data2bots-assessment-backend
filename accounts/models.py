@@ -6,7 +6,7 @@ from django.db import models
 import uuid
 
 # Own Imports
-from auth.managers import UserManager
+from accounts.managers import UserManager
 
 
 class User(AbstractBaseUser, PermissionsMixin):
