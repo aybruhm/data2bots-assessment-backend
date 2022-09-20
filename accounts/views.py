@@ -57,7 +57,7 @@ class UpdateUserInformationAPIView(views.APIView):
     serializer_class = UserSerializer
     permission_classes = (permissions.IsAuthenticated, )
     
-    def get_user(self, email:str):
+    def get_user(self, request:Request) -> User:
         """
         It returns a user object if the user exists, 
         otherwise it raises an exception
@@ -67,24 +67,22 @@ class UpdateUserInformationAPIView(views.APIView):
         :return: The user object is being returned.
         """
         try:
-            user = User.objects.filter(email=email).first()
+            user = User.objects.filter(email=request.user.email).first()
             return user
         except (User.DoesNotExist):
             raise Exception("User does not exist!")
             
     
-    def get(self, request:Request, email:str) -> Response:
+    def get(self, request:Request) -> Response:
         """
-        This function gets a user by email and 
+        This function gets a user and 
         returns a serialized version of the user
         
         :param request: The request object
         :type request: Request
-        :param email: The email of the user to be retrieved
-        :type email: str
         :return: A Response object with the payload and status code.
         """
-        user = self.get_user(email=email)
+        user = self.get_user(request=request)
         serializer = self.serializer_class(user)
         
         payload = success_response(
@@ -94,17 +92,15 @@ class UpdateUserInformationAPIView(views.APIView):
         )
         return Response(data=payload, status=status.HTTP_200_OK)
     
-    def put(self, request:Request, email:str) -> Response:
+    def put(self, request:Request) -> Response:
         """
         It updates the user's information.
         
         :param request: The request object
         :type request: Request
-        :param email: The email of the user to be updated
-        :type email: str
         :return: A response object.
         """
-        user = self.get_user(email=email)
+        user = self.get_user(request=request)
         serializer = self.serializer_class(instance=user, data=request.data)
         
         if serializer.is_valid():
