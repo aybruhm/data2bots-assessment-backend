@@ -31,9 +31,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     # set objects to UserManager
     objects = UserManager()
 
-    def __str__(self) -> str:
-        return self.email
-
     class Meta:
         verbose_name_plural = "Users"
-        db_table = "users"
+        db_table = "users" 
+    
+    def __str__(self) -> str:
+        return self.email
+    
+    def fullname(self) -> str:
+        return f"{self.firstname} {self.lastname}"
