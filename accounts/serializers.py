@@ -27,3 +27,9 @@ class UserSerializer(serializers.ModelSerializer):
             'username', 'email', 'is_active', 'is_staff', 
             'is_superuser', 
         )
+        extra_kwargs = {
+            'uuid': {'read_only': True},
+            'is_active': {'read_only': True},
+            'is_staff': {'read_only': True},
+            'is_superuser': {'read_only': True},
+        }
