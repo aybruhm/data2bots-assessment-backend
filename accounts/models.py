@@ -18,7 +18,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     firstname = models.CharField(max_length=255)
     lastname = models.CharField(max_length=255)
     username = models.CharField(max_length=255)
-    email = models.EmailField(db_index=True, unique=True)
+    email = models.EmailField(max_length=255, unique=True)
 
     # booleans
     is_active = models.BooleanField(default=True)
