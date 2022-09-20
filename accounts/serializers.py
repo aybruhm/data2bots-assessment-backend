@@ -11,6 +11,11 @@ class RegisterUserSerializer(serializers.Serializer):
     username = serializers.CharField(required=True)
     email = serializers.CharField(required=True)
     password = serializers.CharField(required=True)
+    
+    def save(self, **kwargs):
+        print("Kwargs: ", kwargs)
+        # create and save user to database
+        return super().save(**kwargs)
 
 
 class UserSerializer(serializers.ModelSerializer):
