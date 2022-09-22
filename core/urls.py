@@ -29,6 +29,9 @@ urlpatterns = [
     # authentication endpoints
     path("api/v1/auth/", include("accounts.urls")),
     
+    # products endpoints
+    path("api/v1/products/", include("products.urls")),
+    
     # api docs
     re_path(r'^generate_api_documentation(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     re_path(r'^docs/$', schema_view.with_ui('swagger', cache_timeout=0), name='api_docs'),
