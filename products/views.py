@@ -3,25 +3,21 @@ from rest_framework import status, views, permissions
 from rest_framework.request import Request
 from rest_framework.response import Response
 
-# YASG Imports
-from drf_yasg.utils import swagger_auto_schema
-
 # Payload Imports
-from rest_api_payload import success_response, error_response
+from rest_api_payload import success_response
 
 # Own Imports
-from accounts.serializers import OrderSerializer
-from accounts.models import Order
+from products.serializers import OrderSerializer
+from products.models import Order
 
 
 class UserOrdersAPIView(views.APIView):
     serializer_class = OrderSerializer
     permission_classes = (permissions.IsAuthenticated, )
     
-    @swagger_auto_schema(request_body=serializer_class)
-    def post(self, request:Request) -> Response:
+    def get(self, request:Request) -> Response:
         """
-        This function serializes the logged-in user orders
+        This function serializes the orders related to the logged-in user
         and returns a response object
         
         :param request: This is the request object that is sent to the view
@@ -33,7 +29,7 @@ class UserOrdersAPIView(views.APIView):
         
         payload = success_response(
             status=True,
-            messagge="User orders retrieved!",
+            message="User orders retrieved!",
             data=serializer.data
         )
         return Response(data=payload, status=status.HTTP_200_OK)
