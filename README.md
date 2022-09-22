@@ -23,18 +23,23 @@ cd data2bots-assessment-backend
 pip install -r requirements.txt
 ```
 
-4. Run the test cases with
+4. Create an environment `.env` file and add the following:
+```
+SECRET_KEY = 'what-ever-seccret-key-you-choose-to-add'
+```
+
+5. Run the test cases with
 ```
 python manage.py test
 ```
 
-5. Run the development server with
+6. Run the development server with
 
 ```
 python manage.py runserver
 ```
 
-6. Launch your browser and navigate to:
+7. Launch your browser and navigate to:
 
 ```
 http://127.0.0.1:8000
