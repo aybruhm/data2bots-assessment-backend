@@ -5,6 +5,27 @@ Assessment project.
 
 ## Endpoints
 
+- POST
+/auth/login/ -
+
+
+- POST
+/auth/login/refresh/ -
+
+
+- POST
+/auth/register/ -
+
+
+- GET
+/auth/update/ -
+
+
+- PUT
+/auth/update/ -
+
+- GET
+/products/orders/ -
 
 <br>
 
@@ -48,3 +69,10 @@ http://127.0.0.1:8000
 <br>
 
 ## Screenshot
+
+
+## Default Admin
+
+username/email: admin@data2bots.com
+
+password: admin
