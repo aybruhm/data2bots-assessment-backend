@@ -40,7 +40,7 @@ class Order(ObjectTracker):
         ordering = ["-date_created"]
 
     def __str__(self) -> str:
-        return f"{self.user.fullname} order"
+        return f"{self.user.email} #{self.id} order"
 
 
 class PaymentStatus(models.Choices):
@@ -68,4 +68,4 @@ class Payment(ObjectTracker):
         ]
         
     def __str__(self) -> str:
-        return f"{self.user.fullname} payment for #{self.order.uuid} order"
+        return f"{self.user.email} payment for #{self.order.id} order"
