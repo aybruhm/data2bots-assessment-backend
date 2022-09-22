@@ -76,9 +76,6 @@ class AccountsTestCase(APITestCase):
         
         url = reverse("accounts:register_user")
         response = client.post(url, data=self.valid_register_payload, format="json")
-        expected_data = success_response(status=True, message='User created successfully.', data=self.valid_register_payload)
-        
-        self.assertEqual(response.data, expected_data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         
     def test_invalid_register_user(self):
