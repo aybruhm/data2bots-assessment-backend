@@ -1,33 +1,7 @@
 # Data2bots Assessment
-Assessment project.
+An assessment project that was given to me to test out my API development and problem-solving skills with Django REST Framework.
 
-<br>
-
-## Endpoints
-
-- POST
-/auth/login/ -
-
-
-- POST
-/auth/login/refresh/ -
-
-
-- POST
-/auth/register/ -
-
-
-- GET
-/auth/update/ -
-
-
-- PUT
-/auth/update/ -
-
-- GET
-/products/orders/ -
-
-<br>
+## Get Started
 
 To get it running on your local machine, follow the steps below:
 
@@ -69,6 +43,7 @@ http://127.0.0.1:8000
 <br>
 
 ## Screenshot
+![api_docs_screenshot](https://user-images.githubusercontent.com/55067204/191750572-16974bf8-d316-4bbe-9acb-c5b59882b02e.png)
 
 
 ## Default Admin
